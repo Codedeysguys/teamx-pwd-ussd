@@ -3,12 +3,15 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
+const ussdRoutes = require('./routes/ussdRoutes')
 
 // Middleware
 app.use(helmet()); // Security headers
 app.use(cors()); // Enable CORS
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use('/', ussdRoutes);
 
 const PORT = process.env.PORT || 3000;
 
