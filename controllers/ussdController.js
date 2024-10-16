@@ -91,7 +91,7 @@ async function handleUssd(req, res) {
             response = `END Connecting you to the Mental Health helpline...`;
             // Implement call connection logic
         } else if (textArray[1] === '2') {
-            response = `END Connecting you to the Disability Support helpline...`;
+            response = `END Connecting you to the Disability Support helpline..`;
         } else if (textArray[1] === '3') {
             response = `END Connecting you to the Domestic Violence helpline...`;
         }
