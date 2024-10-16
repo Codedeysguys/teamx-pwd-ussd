@@ -16,7 +16,7 @@ async function connectToDatabase() {
 
 async function getDatabase() {
     const client = await connectToDatabase();
-    return client.db('hack4PWD');
+    return client.db('Cluster0');
 }
 
 module.exports = { getDatabase };
