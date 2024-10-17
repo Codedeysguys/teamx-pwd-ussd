@@ -85,16 +85,10 @@ async function handleUssd(req, res) {
     
     // 5. Call Helpline
     else if (textArray[0] === '5') {
-        if (textArray.length === 1) {
-            response = `CON Select a helpline:\n1. Mental Health\n2. Disability Support\n3. Domestic Violence`;
-        } else if (textArray[1] === '1') {
-            response = `END Connecting you to the Mental Health helpline...`;
-            // Implement call connection logic
-        } else if (textArray[1] === '2') {
-            response = `END Connecting you to the Disability Support helpline..`;
-        } else if (textArray[1] === '3') {
-            response = `END Connecting you to the Domestic Violence helpline...`;
-        }
+        response = `END Helplines:\n`;
+        response += `Mental Health: 1199\n`;
+        response += `Disability Support: 0800 724 333\n`;
+        response += `Domestic Violence: 1195`;
     }
 
     // Send the response back to Africa's Talking
