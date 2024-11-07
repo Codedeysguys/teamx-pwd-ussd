@@ -1,5 +1,5 @@
 const { addContact, getContacts, removeContact } = require('../models/contact');
-// const { sendSosAlert } = require('../utils/alertUtils');
+const { sendSosAlert } = require('../utils/alertUtils');
 
 // USSD Controller function
 async function handleUssd(req, res) {
@@ -73,15 +73,15 @@ async function handleUssd(req, res) {
     }
 
     // 4. Send SOS Alert
-    // else if (textArray[0] === '4') {
-    //     const contacts = await getContacts(phoneNumber);
-    //     if (contacts.length === 0) {
-    //         response = `END You have no registered contacts.`;
-    //     } else {
-    //         await sendSosAlert(phoneNumber, contacts);
-    //         response = `END SOS alert sent to your contacts.`;
-    //     }
-    // }
+    else if (textArray[0] === '4') {
+        const contacts = await getContacts(phoneNumber);
+        if (contacts.length === 0) {
+            response = `END You have no registered contacts.`;
+        } else {
+            await sendSosAlert(phoneNumber, contacts);
+            response = `END SOS alert sent to your contacts.`;
+        }
+    }
     
     // 5. Call Helpline
     else if (textArray[0] === '5') {
